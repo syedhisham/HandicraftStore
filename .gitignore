@@ -1,0 +1,22 @@
+# Node.js
+node_modules/
+.env
+npm-debug.log
+yarn-error.log
+
+# Logs
+logs/
+*.log
+
+# Build files
+dist/
+build/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# IDE/Editor settings
+.vscode/
+*.iml
+.idea/

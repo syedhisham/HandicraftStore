@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+* {
+  font-family: "Montserrat", sans-serif;
+}
+.montserrat {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+/* Hide horizontal scrollbar */
+/* This class will hide the scrollbar */
+.hide-scroll-bar {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
+.hide-scroll-bar::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
+}
+
+
+/* Smooth transition for sliding container */
+.sliding-container {
+  transition: transform 2s ease-in-out; /* Smooth transition for sliding */
+}
+
+
