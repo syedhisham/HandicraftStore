@@ -10,7 +10,7 @@ import { sendEmail } from "../../mail/sendEmail.js";
 
 // Updated createOrder controller
 const createOrder = asyncHandler(async (req, res, next) => {
-  const { products, totalAmount, paymentMethod, shippingAddress } = req.body;
+  const { products, totalAmount, paymentMethod, shippingAddress,sessionId } = req.body;
 
   // Validate request data
   if (!products || !totalAmount || !paymentMethod || !shippingAddress) {
@@ -58,12 +58,19 @@ const createOrder = asyncHandler(async (req, res, next) => {
     throw new ApiError(400, "Total amount mismatch with product prices");
   }
 
+  let paymentStatus = "Pending";
+  if (paymentMethod === "Debit Card") {
+          paymentStatus = "Completed";
+  }
+
   // Create the order
   const order = await Order.create({
     user,
     products: validatedProducts,
     totalAmount: calculatedTotal,
     paymentMethod,
+    paymentStatus,
+    sessionId: paymentMethod === "Debit Card" ? sessionId : undefined,
     shippingAddress,
   });
 
