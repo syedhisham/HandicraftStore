@@ -17,7 +17,7 @@ const OrderConfirmation = () => {
     state || {};
 
   const handleBackToShop = () => {
-    navigate("/");
+    navigate("/allCategoryProducts");
   };
 
   return (
@@ -38,7 +38,7 @@ const OrderConfirmation = () => {
             Order Summary:
           </p>
           <div className="mb-2">
-            {cartItems?.map((item, index) => (
+            {cartItems.items?.map((item, index) => (
               <div
                 key={`${item._id}-${index}`}
                 className="flex justify-start mb-2 gap-8"
