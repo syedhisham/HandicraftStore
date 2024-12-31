@@ -22,7 +22,7 @@ import productRoutes from "./routes/products/product.route.js"
 import reviewRoutes from "./routes/review/review.routes.js"
 import cartRoutes from "./routes/cart/cart.routes.js";
 import orderRoutes from "./routes/order/order.route.js"
-
+import sessionRoutes from './routes/session/session.route.js'
 
 //routes
 app.use("/api/users", userRoutes);
@@ -30,6 +30,8 @@ app.use("/api/products", productRoutes);
 app.use("/api/reviews", reviewRoutes);
 app.use("/api/cart", cartRoutes);
 app.use("/api/orders", orderRoutes);
+app.use("/api/session", sessionRoutes);
+
 
 
 export { app };

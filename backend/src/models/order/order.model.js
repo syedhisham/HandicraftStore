@@ -35,15 +35,17 @@ const orderSchema = new mongoose.Schema(
       enum: ["Pending", "Processing", "Shipped", "Delivered", "Cancelled"],
       default: "Pending",
     },
+    paymentStatus: { type: String, enum: ['Pending', 'Completed', 'Failed'], default: 'Pending' },
     paymentMethod: {
       type: String,
-      enum: ["Credit Card", "JazzCash","EasyPaisa", "Cash on Delivery"],
+      enum: ["Debit Card", "Cash on Delivery"],
       required: true,
     },
     shippingAddress: {
       type: String,
       required: true,
     },
+    sessionId: { type: String },
   },
   {
     timestamps: true,
