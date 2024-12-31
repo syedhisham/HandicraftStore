@@ -64,6 +64,9 @@ export function NavbarWithSearch() {
   const handleSignUp = () => {
     navigate("/register");
   };
+  const handeHomePage = () => {
+    navigate("/");
+  };
 
   return (
     <Navbar className="mx-auto max-w-screen-4xl rounded-none bg-white px-4 py-3">
@@ -72,9 +75,9 @@ export function NavbarWithSearch() {
         {/* Left side - Brand name */}
         <Typography
           as="a"
-          href="#"
           variant="h4"
           className="mr-4 ml-2 cursor-pointer py-1.5"
+          onClick={handeHomePage}
         >
           Crafted<span className="text-orange-600">Treasures</span>
         </Typography>

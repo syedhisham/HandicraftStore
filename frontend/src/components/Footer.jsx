@@ -27,12 +27,12 @@ const SITEMAP = [
       { label: "Apparel", path: "/allCategoryProducts" },
     ],
   },
-  {
-    title: "Products",
-    links: [
-      { label: "Accessories", path: "/allCategoryProducts" },
-    ],
-  },
+  // {
+  //   title: "Products",
+  //   links: [
+  //     { label: "Accessories", path: "/allCategoryProducts" },
+  //   ],
+  // },
 ];
 
 const currentYear = new Date().getFullYear();
@@ -63,19 +63,21 @@ const Footer = () => {
       navigate(path);
     }
   };
-
+  const handleHomePage = () => {
+    navigate("/")
+  }
   return (
     <footer className="relative w-full bg-orange-700">
       <div className="mx-auto w-full max-w-7xl px-8">
          {/* Handicraft H1 */}
     <div className="absolute left-0 top-0 translate-y-10">
       {/* <h1 className="text-white text-2xl font-bold ml-4">CraftedTreasures</h1> */}
-        <img className="w-60 h-30"  src={Logo} alt="" />
+        <img className="w-60 h-30 cursor-pointer"  src={Logo} alt="" onClick={handleHomePage} />
 
     </div>
-        <div className="mx-auto grid w-full grid-cols-1 gap-8 py-12 md:grid-cols-2 lg:grid-cols-4">
+        <div className="mx-auto grid w-full grid-cols-1 gap-8 py-12 md:grid-cols-2 lg:grid-cols-3">
           {SITEMAP.map(({ title, links }, key) => (
-            <div key={key} className="w-full">
+            <div key={key} className="w-full text-center">
               <Typography
                 variant="small"
                 color="white"

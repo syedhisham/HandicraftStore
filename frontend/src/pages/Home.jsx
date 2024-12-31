@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { NavbarWithMegaMenu } from "../components/Header";
 import { FaFacebook, FaYoutube, FaInstagram } from "react-icons/fa";
 import { NavbarWithSearch } from "../components/NavbarWithSearch";
@@ -11,8 +11,15 @@ import FeaturedArtisans from "../components/FeaturedArtisians";
 import Footer from "../components/Footer";
 import CustomerTestimonials from "../components/Testimonials";
 import HighRatedProducts from "../components/HighRatedProducts";
+import LoadingOverlay from "../components/LoadingOverlay";
 
 const Home = () => {
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    // Simulate data fetching or initialization
+    const timer = setTimeout(() => setLoading(false), 2000); // Adjust the delay as needed
+    return () => clearTimeout(timer); // Cleanup timer
+  }, []);
   const handleSocialRedirect = (platform) => {
     switch (platform) {
       case "facebook":
@@ -31,6 +38,7 @@ const Home = () => {
 
   return (
     <div className="overflow-x-hidden">
+      {loading && <LoadingOverlay />}
       <div className="w-full h-10 bg-orange-500" id="strip">
         {/* Social Media Icons */}
         <div className="flex justify-center items-center h-full">
